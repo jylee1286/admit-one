@@ -26,12 +26,15 @@ export default function WhyItWorks() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-navy py-20 md:py-28">
+    <section ref={sectionRef} className="bg-navy py-[80px] md:py-[120px]">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           {/* Left — pull quote */}
           <div className="fade-in-section">
-            <blockquote className="font-serif text-white text-2xl md:text-3xl lg:text-4xl leading-snug tracking-tight">
+            <blockquote
+              className="font-serif text-white leading-snug tracking-tight"
+              style={{ fontSize: "clamp(26px, 3.5vw, 40px)" }}
+            >
               &ldquo;We read thousands of essays. We know what works&nbsp;&mdash; and what doesn&rsquo;t.&rdquo;
             </blockquote>
             <p className="text-white/50 text-sm mt-6 tracking-wide">
@@ -43,7 +46,7 @@ export default function WhyItWorks() {
           <div className="fade-in-section lg:pt-4">
             <ul className="space-y-6">
               {points.map((point) => (
-                <li key={point} className="flex gap-4 text-white/85 text-base md:text-lg leading-relaxed">
+                <li key={point} className="flex gap-4 text-white/85 leading-relaxed" style={{ fontSize: "17px" }}>
                   <span className="text-gold shrink-0 mt-0.5">&mdash;</span>
                   <span>{point}</span>
                 </li>

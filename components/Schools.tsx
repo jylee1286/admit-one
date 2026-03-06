@@ -43,28 +43,34 @@ export default function Schools() {
   }, []);
 
   return (
-    <section id="schools" ref={sectionRef} className="bg-cream py-20 md:py-28">
+    <section id="schools" ref={sectionRef} className="bg-cream py-[80px] md:py-[120px]">
       <div className="max-w-6xl mx-auto px-6">
         <div className="fade-in-section">
-          <p className="text-gold text-xs font-sans font-medium uppercase tracking-[0.2em] mb-4">
-            Coverage
+          <p className="text-gold text-[11px] font-sans font-medium uppercase tracking-[0.15em] mb-4">
+            Schools
           </p>
-          <h2 className="font-serif text-primary text-3xl md:text-4xl lg:text-5xl tracking-tight mb-14 md:mb-16">
+          <h2
+            className="font-serif text-primary tracking-tight mb-14 md:mb-16"
+            style={{ fontSize: "clamp(32px, 4vw, 48px)" }}
+          >
             Premium Rubrics Available For
           </h2>
         </div>
 
-        <div className="fade-in-section grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-4">
+        <div className="fade-in-section grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-1">
           {schools.map((school) => (
-            <p key={school} className="text-primary text-base leading-loose">
-              {school}
-            </p>
+            <div key={school} className="flex items-center gap-3 py-2.5">
+              <span className="w-px h-4 bg-gold/50 shrink-0" />
+              <p className="text-primary leading-relaxed" style={{ fontSize: "15px" }}>
+                {school}
+              </p>
+            </div>
           ))}
         </div>
 
         <div className="fade-in-section mt-12">
           <div className="h-px bg-border mb-6" />
-          <p className="text-secondary text-sm">
+          <p className="text-secondary" style={{ fontSize: "14px" }}>
             Don&rsquo;t see your school? Our standard rubric covers all other institutions.
           </p>
         </div>

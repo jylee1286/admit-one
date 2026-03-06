@@ -44,49 +44,62 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-cream py-20 md:py-28">
+    <section ref={sectionRef} className="bg-cream">
+      {/* Section divider */}
       <div className="max-w-6xl mx-auto px-6">
-        <div className="fade-in-section mb-16">
-          <p className="text-gold text-xs font-sans font-medium uppercase tracking-[0.2em] mb-4">
-            Results
-          </p>
-          <h2 className="font-serif text-primary text-3xl md:text-4xl lg:text-5xl tracking-tight">
-            What students are saying
-          </h2>
-        </div>
+        <div className="h-px bg-border" />
+      </div>
 
-        <div className="space-y-16 md:space-y-20">
-          {testimonials.map((t, i) => (
-            <div
-              key={i}
-              className={`fade-in-section ${
-                t.align === "right" ? "md:ml-auto md:text-right" : ""
-              } max-w-2xl`}
+      <div className="py-[80px] md:py-[120px]">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="fade-in-section mb-16 md:mb-20">
+            <p className="text-gold text-[11px] font-sans font-medium uppercase tracking-[0.15em] mb-4">
+              Results
+            </p>
+            <h2
+              className="font-serif text-primary tracking-tight"
+              style={{ fontSize: "clamp(32px, 4vw, 48px)" }}
             >
-              {/* Decorative quotation mark */}
-              <span
-                className="font-serif text-navy block leading-none select-none mb-2"
-                style={{ fontSize: "72px", opacity: 0.08 }}
-                aria-hidden="true"
+              What students are saying
+            </h2>
+          </div>
+
+          <div className="space-y-16 md:space-y-24">
+            {testimonials.map((t, i) => (
+              <div
+                key={i}
+                className={`fade-in-section ${
+                  t.align === "right" ? "md:ml-auto md:text-right" : ""
+                } max-w-2xl`}
               >
-                &ldquo;
-              </span>
+                {/* Decorative quotation mark */}
+                <span
+                  className="font-serif text-navy block leading-none select-none"
+                  style={{ fontSize: "120px", opacity: 0.06, marginBottom: "-40px" }}
+                  aria-hidden="true"
+                >
+                  &ldquo;
+                </span>
 
-              <blockquote className="font-serif text-primary text-xl md:text-2xl leading-relaxed tracking-tight -mt-10">
-                &ldquo;{t.quote}&rdquo;
-              </blockquote>
+                <blockquote
+                  className="font-serif text-primary leading-relaxed tracking-tight"
+                  style={{ fontSize: "clamp(20px, 2.5vw, 26px)" }}
+                >
+                  &ldquo;{t.quote}&rdquo;
+                </blockquote>
 
-              <div className="mt-6">
-                <p className="text-primary text-sm font-medium">{t.name}</p>
-                <p className="text-secondary text-sm">{t.school}</p>
+                <div className="mt-6">
+                  <p className="text-navy text-sm font-medium">{t.name}</p>
+                  <p className="text-gold text-sm">{t.school}</p>
+                </div>
+
+                {/* Divider */}
+                {i < testimonials.length - 1 && (
+                  <div className="h-px bg-border mt-16 md:mt-24" />
+                )}
               </div>
-
-              {/* Divider */}
-              {i < testimonials.length - 1 && (
-                <div className="h-px bg-border mt-16 md:mt-20" />
-              )}
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
