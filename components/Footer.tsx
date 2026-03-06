@@ -1,48 +1,40 @@
 export default function Footer() {
   return (
-    <footer className="bg-navy py-14">
+    <footer className="bg-cream border-t border-border py-10">
       <div className="max-w-6xl mx-auto px-6">
-        {/* Top divider */}
-        <div className="h-px bg-white/10 mb-10" />
-
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+        {/* Main row */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
           {/* Logo */}
-          <div className="flex flex-col items-center md:items-start gap-2">
-            <a href="#" className="font-serif text-white text-lg tracking-wide hover:text-gold/80 transition-colors">
-              Admit One
-            </a>
-            <p className="text-white/30 text-xs">
-              Built by a Harvard student, for students who want honest feedback.
-            </p>
-          </div>
+          <a href="#" className="font-serif italic text-navy text-lg">
+            Admit One
+          </a>
 
           {/* Nav links */}
-          <div className="flex items-center gap-8">
-            <a
-              href="#how-it-works"
-              className="nav-link text-white/50 hover:text-white text-sm transition-colors"
-            >
+          <div className="flex items-center gap-6">
+            <a href="#how-it-works" className="text-secondary font-sans text-sm hover:text-navy transition-colors">
               How It Works
             </a>
-            <a
-              href="#schools"
-              className="nav-link text-white/50 hover:text-white text-sm transition-colors"
-            >
+            <a href="#stats" className="text-secondary font-sans text-sm hover:text-navy transition-colors">
               Schools
             </a>
-            <a
-              href="#pricing"
-              className="nav-link text-white/50 hover:text-white text-sm transition-colors"
-            >
+            <a href="#pricing" className="text-secondary font-sans text-sm hover:text-navy transition-colors">
               Pricing
+            </a>
+            <a href="#" className="text-secondary font-sans text-sm hover:text-navy transition-colors">
+              Contact
             </a>
           </div>
 
           {/* Copyright */}
-          <p className="text-white/30 text-sm">
-            &copy; 2026 Admit One
+          <p className="text-secondary font-sans text-sm">
+            © 2026 Admit One
           </p>
         </div>
+
+        {/* Tagline */}
+        <p className="text-center font-sans italic text-secondary/70" style={{ fontSize: "13px" }}>
+          Built by a Harvard student, for students who want honest feedback.
+        </p>
       </div>
     </footer>
   );

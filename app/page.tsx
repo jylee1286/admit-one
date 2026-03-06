@@ -1,8 +1,9 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
+import Marquee from "@/components/Marquee";
+import Stats from "@/components/Stats";
 import HowItWorks from "@/components/HowItWorks";
-import WhyItWorks from "@/components/WhyItWorks";
-import Schools from "@/components/Schools";
+import ScorePreview from "@/components/ScorePreview";
 import Testimonials from "@/components/Testimonials";
 import Pricing from "@/components/Pricing";
 import Footer from "@/components/Footer";
@@ -12,9 +13,10 @@ export default function Home() {
     <main>
       <Navigation />
       <Hero />
+      <Marquee />
+      <Stats />
       <HowItWorks />
-      <WhyItWorks />
-      <Schools />
+      <ScorePreview />
       <Testimonials />
       <Pricing />
       <Footer />

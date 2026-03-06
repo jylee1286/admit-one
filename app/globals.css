@@ -5,56 +5,13 @@
   --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
 
   --color-cream: #FAF7F2;
-  --color-sage: #F2F4F0;
-  --color-warm-gray: #F5F1EA;
+  --color-cream-dark: #F5F1EA;
   --color-navy: #1E3A5F;
   --color-navy-light: #264875;
   --color-gold: #D4A853;
-  --color-gold-soft: #D4A853;
   --color-primary: #2A2420;
   --color-border: #EAE5DC;
   --color-secondary: #7A6F68;
-}
-
-/* Subtle paper texture via CSS noise */
-.paper-texture {
-  position: relative;
-}
-
-.paper-texture::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: 0.03;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  background-size: 256px 256px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.paper-texture > * {
-  position: relative;
-  z-index: 1;
-}
-
-/* Scroll fade-in */
-.fade-in-section {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.fade-in-section.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Staggered delays for grid children */
-.fade-in-section:nth-child(2) {
-  transition-delay: 0.1s;
-}
-.fade-in-section:nth-child(3) {
-  transition-delay: 0.2s;
 }
 
 /* Smooth scrolling */
@@ -68,7 +25,55 @@ html {
   color: #1E3A5F;
 }
 
-/* Nav link hover underline animation */
+/* ── Marquee ── */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 40s linear infinite;
+  display: flex;
+  width: max-content;
+}
+@media (max-width: 768px) {
+  .marquee-track {
+    animation-duration: 60s;
+  }
+}
+
+/* ── Scroll indicator pulse ── */
+@keyframes scrollPulse {
+  0%, 100% { transform: scaleY(1); opacity: 0.6; }
+  50% { transform: scaleY(1.5); opacity: 1; }
+}
+.scroll-indicator {
+  animation: scrollPulse 2s ease-in-out infinite;
+  transform-origin: top;
+}
+
+/* ── Fade-in on scroll ── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children */
+.fade-up-delay-1 { transition-delay: 0.1s; }
+.fade-up-delay-2 { transition-delay: 0.2s; }
+.fade-up-delay-3 { transition-delay: 0.3s; }
+
+/* ── Progress bar animation ── */
+.progress-bar {
+  transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── Nav link hover underline ── */
 .nav-link {
   position: relative;
 }
@@ -86,30 +91,11 @@ html {
   width: 100%;
 }
 
-/* Button hover lift */
+/* ── Button lift ── */
 .btn-lift {
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .btn-lift:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-}
-
-/* School item hover */
-.school-item {
-  transition: transform 0.2s ease, background-color 0.2s ease;
-}
-.school-item:hover {
-  transform: translateX(8px);
-}
-
-/* Testimonial hover */
-.testimonial-card {
-  transition: background-color 0.3s ease;
-  border-radius: 12px;
-  padding: 24px;
-  margin: -24px;
-}
-.testimonial-card:hover {
-  background-color: #F5F0E8;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
 }
