@@ -50,9 +50,9 @@ export default function Testimonials() {
         <div className="h-px bg-border" />
       </div>
 
-      <div className="py-[80px] md:py-[120px]">
+      <div className="py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="fade-in-section mb-14 md:mb-20">
+          <div className="fade-in-section mb-12 md:mb-16">
             <p className="text-gold text-[11px] font-sans font-medium uppercase tracking-[0.15em] mb-4">
               Results
             </p>
@@ -70,29 +70,31 @@ export default function Testimonials() {
                 key={i}
                 className={`fade-in-section ${
                   t.align === "right" ? "md:ml-auto md:text-right" : ""
-                } max-w-2xl ${i > 0 ? "pt-12 md:pt-16" : ""} ${i < testimonials.length - 1 ? "pb-12 md:pb-16 border-b border-border" : ""}`}
+                } max-w-2xl ${i > 0 ? "pt-10 md:pt-14" : ""} ${i < testimonials.length - 1 ? "pb-10 md:pb-14 border-b border-border" : ""}`}
               >
-                {/* Decorative quotation mark */}
-                <div className={`relative ${t.align === "right" ? "md:flex md:justify-end" : ""}`}>
-                  <span
-                    className="font-serif text-navy block leading-none select-none"
-                    style={{ fontSize: "140px", opacity: 0.05, marginBottom: "-60px", lineHeight: "0.8" }}
-                    aria-hidden="true"
+                <div className="testimonial-card">
+                  {/* Decorative quotation mark */}
+                  <div className={`relative ${t.align === "right" ? "md:flex md:justify-end" : ""}`}>
+                    <span
+                      className="font-serif text-navy block leading-none select-none"
+                      style={{ fontSize: "120px", opacity: 0.06, marginBottom: "-50px", lineHeight: "0.8" }}
+                      aria-hidden="true"
+                    >
+                      &ldquo;
+                    </span>
+                  </div>
+
+                  <blockquote
+                    className="font-serif text-primary leading-relaxed tracking-tight relative"
+                    style={{ fontSize: "clamp(20px, 2.5vw, 24px)" }}
                   >
-                    &ldquo;
-                  </span>
-                </div>
+                    {t.quote}
+                  </blockquote>
 
-                <blockquote
-                  className="font-serif text-primary leading-relaxed tracking-tight relative"
-                  style={{ fontSize: "clamp(20px, 2.5vw, 24px)" }}
-                >
-                  {t.quote}
-                </blockquote>
-
-                <div className="mt-5">
-                  <p className="text-navy text-sm font-medium">{t.name}</p>
-                  <p className="text-gold text-sm">{t.school}</p>
+                  <div className="mt-5">
+                    <p className="text-navy text-sm font-medium">{t.name}</p>
+                    <p className="text-gold text-sm">{t.school}</p>
+                  </div>
                 </div>
               </div>
             ))}

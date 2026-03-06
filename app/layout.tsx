@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Playfair_Display, DM_Sans } from "next/font/google";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -8,20 +8,21 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
-const inter = Inter({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-dm-sans",
   display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "Admit One — College Essay Coaching with T20-Specific Rubrics",
+  title: "Admit One — Finally Know If Your Essay Is Actually Good",
   description:
-    "Score your college essay against rubrics built from real admissions officer interviews. Know exactly where you stand before you apply.",
+    "We built rubrics from real conversations with admissions officers. No more guessing — just honest feedback on where you stand.",
   openGraph: {
-    title: "Admit One — Your Essay, Scored by the T20 Standard",
+    title: "Admit One — Finally Know If Your Essay Is Actually Good",
     description:
-      "Rubrics built from real admissions officer interviews. Know exactly where you stand before you apply.",
+      "Rubrics built from real admissions officer conversations. Know exactly where you stand before you apply.",
     type: "website",
   },
 };
@@ -32,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
+    <html lang="en" className={`${playfair.variable} ${dmSans.variable}`}>
       <body className="font-sans antialiased bg-cream text-primary">
         {children}
       </body>

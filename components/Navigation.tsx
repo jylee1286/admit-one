@@ -17,25 +17,25 @@ export default function Navigation() {
         <div className="hidden md:flex items-center gap-8">
           <a
             href="#how-it-works"
-            className="text-white/80 hover:text-white text-sm tracking-wide transition-colors"
+            className="nav-link text-white/80 hover:text-white text-sm tracking-wide transition-colors"
           >
             How It Works
           </a>
           <a
             href="#schools"
-            className="text-white/80 hover:text-white text-sm tracking-wide transition-colors"
+            className="nav-link text-white/80 hover:text-white text-sm tracking-wide transition-colors"
           >
             Schools
           </a>
           <a
             href="#pricing"
-            className="text-white/80 hover:text-white text-sm tracking-wide transition-colors"
+            className="nav-link text-white/80 hover:text-white text-sm tracking-wide transition-colors"
           >
             Pricing
           </a>
           <a
             href="#pricing"
-            className="border border-gold text-white text-sm px-5 py-2 hover:bg-gold/10 transition-colors tracking-wide"
+            className="bg-gold text-white text-sm font-medium px-5 py-2.5 rounded-lg btn-lift"
           >
             Get Started
           </a>
@@ -85,7 +85,7 @@ export default function Navigation() {
           </a>
           <a
             href="#pricing"
-            className="border border-gold text-white text-sm px-5 py-2 text-center hover:bg-gold/10 transition-colors tracking-wide mt-2"
+            className="bg-gold text-white text-sm font-medium px-5 py-2.5 text-center rounded-lg mt-2 btn-lift"
             onClick={() => setMobileOpen(false)}
           >
             Get Started

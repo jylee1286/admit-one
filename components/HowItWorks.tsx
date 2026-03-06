@@ -42,17 +42,17 @@ export default function HowItWorks() {
   }, []);
 
   return (
-    <section id="how-it-works" ref={sectionRef} className="bg-cream py-[80px] md:py-[120px]">
+    <section id="how-it-works" ref={sectionRef} className="bg-cream py-16 md:py-24">
       <div className="max-w-6xl mx-auto px-6">
         <div className="fade-in-section">
           <p className="text-gold text-[11px] font-sans font-medium uppercase tracking-[0.15em] mb-4">
             The Process
           </p>
           <h2
-            className="font-serif text-primary tracking-tight mb-14 md:mb-20"
+            className="font-serif text-primary tracking-tight mb-12 md:mb-16"
             style={{ fontSize: "clamp(32px, 4vw, 48px)" }}
           >
-            Three steps to a stronger essay
+            It&rsquo;s simpler than you think
           </h2>
         </div>
 
@@ -61,7 +61,7 @@ export default function HowItWorks() {
           {/* Horizontal gold connecting line (desktop only) */}
           <div
             className="hidden md:block absolute left-0 right-0 h-px bg-gold/30"
-            style={{ top: "48px" }}
+            style={{ top: "40px" }}
           />
 
           {steps.map((step, i) => (
@@ -80,7 +80,7 @@ export default function HowItWorks() {
                   <span
                     className="font-serif text-navy block select-none pointer-events-none leading-none"
                     style={{
-                      fontSize: "clamp(80px, 10vw, 120px)",
+                      fontSize: "clamp(64px, 8vw, 100px)",
                       opacity: 0.07,
                     }}
                     aria-hidden="true"
@@ -89,14 +89,14 @@ export default function HowItWorks() {
                   </span>
                 </div>
 
-                <div className="mt-4">
+                <div className="mt-3">
                   <h3
                     className="font-serif text-primary mb-3 tracking-tight"
                     style={{ fontSize: "22px" }}
                   >
                     {step.title}
                   </h3>
-                  <p className="text-secondary leading-relaxed" style={{ fontSize: "15px", maxWidth: "280px" }}>
+                  <p className="text-secondary leading-relaxed" style={{ fontSize: "16px", maxWidth: "280px" }}>
                     {step.desc}
                   </p>
                 </div>

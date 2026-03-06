@@ -20,23 +20,23 @@ export default function Pricing() {
   }, []);
 
   return (
-    <section id="pricing" ref={sectionRef} className="bg-cream">
+    <section id="pricing" ref={sectionRef} className="bg-warm-gray">
       {/* Section divider */}
       <div className="max-w-6xl mx-auto px-6">
         <div className="h-px bg-border" />
       </div>
 
-      <div className="py-[80px] md:py-[120px]">
+      <div className="py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-6">
           <div className="fade-in-section">
             <p className="text-gold text-[11px] font-sans font-medium uppercase tracking-[0.15em] mb-4">
               Pricing
             </p>
             <h2
-              className="font-serif text-primary tracking-tight mb-14 md:mb-20"
+              className="font-serif text-primary tracking-tight mb-12 md:mb-16"
               style={{ fontSize: "clamp(32px, 4vw, 48px)" }}
             >
-              Simple, transparent pricing
+              One price. All season.
             </h2>
           </div>
 
@@ -47,12 +47,12 @@ export default function Pricing() {
                 Free Tier
               </p>
               <h3 className="font-serif text-primary tracking-tight mb-2" style={{ fontSize: "28px" }}>
-                Interview Prep
+                Free Forever
               </h3>
               <p className="font-serif text-secondary mb-6" style={{ fontSize: "32px" }}>
-                Free
+                $0
               </p>
-              <p className="text-secondary mb-8" style={{ fontSize: "15px" }}>
+              <p className="text-secondary mb-8" style={{ fontSize: "16px" }}>
                 Get started with our foundational tools.
               </p>
 
@@ -79,10 +79,10 @@ export default function Pricing() {
             {/* Full Season — recommended */}
             <div className="border-t md:border-t-0 pt-10 md:pt-0 relative">
               {/* Gold border wrapper */}
-              <div className="md:border md:border-gold/30 md:p-10 lg:p-12">
+              <div className="md:border md:border-gold/30 md:p-10 lg:p-12 rounded-xl">
                 {/* Recommended badge */}
                 <div className="mb-4">
-                  <span className="text-gold text-[10px] uppercase tracking-[0.2em] font-medium border border-gold/30 px-3 py-1 inline-block">
+                  <span className="text-gold text-[10px] uppercase tracking-[0.2em] font-medium border border-gold/30 px-3 py-1.5 inline-block rounded-md">
                     Recommended
                   </span>
                 </div>
@@ -98,7 +98,7 @@ export default function Pricing() {
                   <span className="text-secondary text-sm">/application season</span>
                 </div>
 
-                <p className="text-secondary mb-8" style={{ fontSize: "15px" }}>
+                <p className="text-secondary mb-8" style={{ fontSize: "16px" }}>
                   Everything you need for a competitive application.
                 </p>
 
@@ -127,9 +127,9 @@ export default function Pricing() {
 
                 <a
                   href="#"
-                  className="inline-block bg-navy text-white px-8 py-4 text-sm tracking-wide hover:bg-navy-light transition-colors"
+                  className="inline-block bg-navy text-white px-8 py-4 text-sm font-medium rounded-lg btn-lift"
                 >
-                  Get Started
+                  Start Scoring Essays
                 </a>
               </div>
             </div>

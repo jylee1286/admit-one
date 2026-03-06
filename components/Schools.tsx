@@ -43,14 +43,14 @@ export default function Schools() {
   }, []);
 
   return (
-    <section id="schools" ref={sectionRef} className="bg-cream py-[80px] md:py-[120px]">
+    <section id="schools" ref={sectionRef} className="bg-sage py-16 md:py-24">
       <div className="max-w-6xl mx-auto px-6">
         <div className="fade-in-section">
           <p className="text-gold text-[11px] font-sans font-medium uppercase tracking-[0.15em] mb-4">
             Schools
           </p>
           <h2
-            className="font-serif text-primary tracking-tight mb-14 md:mb-16"
+            className="font-serif text-primary tracking-tight mb-12 md:mb-14"
             style={{ fontSize: "clamp(32px, 4vw, 48px)" }}
           >
             Premium Rubrics Available For
@@ -61,9 +61,9 @@ export default function Schools() {
           {schools.map((school) => (
             <div
               key={school}
-              className="group flex items-center gap-3 py-3 cursor-default transition-colors hover:bg-navy/[0.02]"
+              className="school-item group flex items-center gap-3 py-3 cursor-default"
             >
-              <span className="w-0.5 h-4 bg-gold/40 shrink-0 transition-all duration-300 group-hover:h-5 group-hover:bg-gold/70" />
+              <span className="w-0.5 h-4 bg-gold/40 shrink-0 transition-all duration-300 group-hover:h-5 group-hover:bg-gold" />
               <p className="text-primary leading-relaxed transition-colors group-hover:text-navy" style={{ fontSize: "15px" }}>
                 {school}
               </p>

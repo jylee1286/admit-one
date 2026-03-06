@@ -33,33 +33,33 @@ export default function Hero() {
         ADMIT ONE
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 pt-24 pb-14 md:pt-32 md:pb-16">
+      <div className="max-w-6xl mx-auto px-6 pt-20 pb-10 md:pt-28 md:pb-12">
         {/* Two-column layout on desktop */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Left column */}
           <div>
             <h1
-              className="font-serif text-primary leading-[1.05] tracking-tight mb-6"
-              style={{ fontSize: "clamp(48px, 7vw, 76px)" }}
+              className="font-serif text-primary leading-[1.08] tracking-tight mb-6"
+              style={{ fontSize: "clamp(44px, 6.5vw, 72px)" }}
             >
-              Your Essay, Scored by the T20&nbsp;Standard
+              Finally Know If Your Essay Is Actually&nbsp;Good
             </h1>
 
-            <p className="text-secondary leading-relaxed mb-10 max-w-xl" style={{ fontSize: "17px" }}>
-              Rubrics built from real admissions officer interviews. Know exactly
-              where you stand before you apply.
+            <p className="text-secondary leading-relaxed mb-10 max-w-xl" style={{ fontSize: "18px" }}>
+              We built rubrics from real conversations with admissions officers.
+              No more guessing&nbsp;&mdash; just honest feedback on where you stand.
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
               <a
                 href="#pricing"
-                className="bg-navy text-white px-8 py-4 text-sm tracking-wide hover:bg-navy-light transition-all duration-300 inline-block hover:shadow-lg"
+                className="bg-navy text-white px-8 py-4 text-sm font-medium rounded-lg btn-lift inline-block"
               >
                 Score My Essay
               </a>
               <a
                 href="#how-it-works"
-                className="text-primary text-sm tracking-wide group inline-flex items-center gap-2 hover:text-navy transition-colors"
+                className="text-primary text-sm font-medium group inline-flex items-center gap-2 hover:text-navy transition-colors"
               >
                 See How It Works
                 <span className="inline-block transition-transform group-hover:translate-x-1">
@@ -75,11 +75,11 @@ export default function Hero() {
             className="fade-in-section lg:mt-2"
           >
             <div
-              className="border border-navy/12 bg-white/70 relative transition-shadow duration-500 hover:shadow-xl"
-              style={{ boxShadow: "0 4px 20px rgba(27,45,79,0.06)" }}
+              className="border border-navy/10 bg-white/70 relative rounded-xl transition-shadow duration-500 hover:shadow-xl overflow-hidden"
+              style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.08)" }}
             >
               {/* Gold top accent line */}
-              <div className="h-0.5 bg-gold/40" />
+              <div className="h-1 bg-gold/50" />
 
               {/* Card header */}
               <div className="px-6 pt-5 pb-4 border-b border-border">
@@ -119,8 +119,8 @@ export default function Hero() {
                           width: barsVisible ? `${dim.width}%` : "0%",
                           transitionDelay: `${i * 120}ms`,
                           background: dim.score >= 9.0
-                            ? "rgba(201,168,76,0.5)"
-                            : "rgba(27,45,79,0.2)",
+                            ? "rgba(212,168,83,0.55)"
+                            : "rgba(30,58,95,0.2)",
                         }}
                       />
                     </div>

@@ -1,16 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
 
-  --color-cream: #FAF8F4;
-  --color-navy: #1B2D4F;
-  --color-navy-light: #243a63;
-  --color-gold: #C9A84C;
-  --color-primary: #1A1A1A;
-  --color-border: #E8E4DC;
-  --color-secondary: #6B6560;
+  --color-cream: #FAF7F2;
+  --color-sage: #F2F4F0;
+  --color-warm-gray: #F5F1EA;
+  --color-navy: #1E3A5F;
+  --color-navy-light: #264875;
+  --color-gold: #D4A853;
+  --color-gold-soft: #D4A853;
+  --color-primary: #2A2420;
+  --color-border: #EAE5DC;
+  --color-secondary: #7A6F68;
 }
 
 /* Subtle paper texture via CSS noise */
@@ -61,6 +64,52 @@ html {
 
 /* Selection color */
 ::selection {
-  background: rgba(201, 168, 76, 0.2);
-  color: #1B2D4F;
+  background: rgba(212, 168, 83, 0.2);
+  color: #1E3A5F;
+}
+
+/* Nav link hover underline animation */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: #D4A853;
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Button hover lift */
+.btn-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+}
+.btn-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+/* School item hover */
+.school-item {
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+.school-item:hover {
+  transform: translateX(8px);
+}
+
+/* Testimonial hover */
+.testimonial-card {
+  transition: background-color 0.3s ease;
+  border-radius: 12px;
+  padding: 24px;
+  margin: -24px;
+}
+.testimonial-card:hover {
+  background-color: #F5F0E8;
 }
