@@ -42,8 +42,18 @@ export default function HowItWorks() {
   }, []);
 
   return (
-    <section id="how-it-works" ref={sectionRef} className="bg-navy py-20 md:py-24">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="how-it-works" ref={sectionRef} className="bg-navy py-20 md:py-24 relative overflow-hidden">
+      {/* Subtle grain texture */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.025]"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")`,
+          backgroundRepeat: "repeat",
+          backgroundSize: "256px 256px",
+        }}
+      />
+
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
         {/* Label */}
         <p
           className="fade-up text-gold font-sans font-semibold mb-4"
@@ -69,12 +79,13 @@ export default function HowItWorks() {
                 i < steps.length - 1 ? "md:border-r md:border-cream/15" : ""
               } ${i === 0 ? "md:pl-0" : ""} ${i === steps.length - 1 ? "md:pr-0" : ""}`}
             >
-              {/* Giant background number */}
+              {/* Giant background number — dramatic */}
               <span
-                className="absolute top-0 left-0 md:left-4 font-serif select-none pointer-events-none leading-none"
+                className="absolute top-[-10px] left-0 md:left-4 font-serif select-none pointer-events-none leading-none"
                 style={{
-                  fontSize: "clamp(140px, 14vw, 180px)",
-                  color: "rgba(250, 247, 242, 0.07)",
+                  fontSize: "180px",
+                  color: "rgba(250, 247, 242, 0.08)",
+                  fontStyle: "italic",
                 }}
                 aria-hidden="true"
               >
@@ -82,11 +93,11 @@ export default function HowItWorks() {
               </span>
 
               {/* Content overlaid on number */}
-              <div className="relative pt-12 md:pt-20 z-10">
+              <div className="relative pt-16 md:pt-24 z-10">
                 <h3 className="font-serif text-cream text-xl md:text-2xl mb-3">
                   {step.title}
                 </h3>
-                <p className="text-cream/70 font-sans text-[15px] leading-relaxed max-w-[280px]">
+                <p className="text-cream/60 font-sans text-[15px] leading-relaxed max-w-[280px]">
                   {step.desc}
                 </p>
               </div>

@@ -3,7 +3,7 @@ export default function Footer() {
     <footer className="bg-cream border-t border-border py-10">
       <div className="max-w-6xl mx-auto px-6">
         {/* Main row */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-6">
           {/* Logo */}
           <a href="#" className="font-serif italic text-navy text-lg">
             Admit One
@@ -31,10 +31,12 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Tagline */}
-        <p className="text-center font-sans italic text-secondary/70" style={{ fontSize: "13px" }}>
-          Built by a Harvard student, for students who want honest feedback.
-        </p>
+        {/* Divider */}
+        <div className="border-t border-border pt-5">
+          <p className="text-center font-sans italic text-secondary/60" style={{ fontSize: "13px" }}>
+            Built by a Harvard student, for students who want honest feedback.
+          </p>
+        </div>
       </div>
     </footer>
   );
