@@ -47,39 +47,60 @@ export default function Testimonials() {
       <div className="max-w-6xl mx-auto px-6">
         {/* Label */}
         <p
-          className="fade-up text-gold font-sans font-semibold mb-14 text-center"
+          className="fade-up text-gold font-sans font-semibold mb-3 text-center"
           style={{ fontSize: "11px", letterSpacing: "0.2em" }}
         >
           WHAT STUDENTS SAY
         </p>
 
+        <h2
+          className="fade-up fade-up-delay-1 font-serif text-navy text-center mb-14"
+          style={{ fontSize: "clamp(32px, 3.5vw, 44px)" }}
+        >
+          Real results, real students.
+        </h2>
+
         {/* Testimonials grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className={`fade-up fade-up-delay-${i + 1} relative border-l-[3px] border-gold pl-6 md:pl-8`}
+              className={`fade-up fade-up-delay-${i + 1} relative bg-white rounded-xl p-7 md:p-8 transition-all duration-300 hover:-translate-y-1 group`}
+              style={{
+                boxShadow: "0 2px 20px rgba(30, 58, 95, 0.06)",
+                borderLeft: "3px solid #D4A853",
+              }}
             >
               {/* Giant decorative quote mark */}
               <span
-                className="absolute -top-8 left-2 font-serif select-none pointer-events-none leading-none"
-                style={{ fontSize: "100px", color: "rgba(212, 168, 83, 0.15)" }}
+                className="absolute top-3 right-5 font-serif select-none pointer-events-none leading-none transition-opacity duration-300 group-hover:opacity-[0.2]"
+                style={{ fontSize: "80px", color: "rgba(212, 168, 83, 0.12)" }}
                 aria-hidden="true"
               >
-                &ldquo;
+                &rdquo;
               </span>
 
               {/* Quote */}
               <p
                 className="relative font-serif italic text-primary leading-relaxed mb-6"
-                style={{ fontSize: "clamp(18px, 1.8vw, 21px)" }}
+                style={{ fontSize: "clamp(16px, 1.6vw, 19px)" }}
               >
                 {t.quote}
               </p>
 
               {/* Attribution */}
-              <p className="font-sans font-bold text-navy text-sm">{t.name}</p>
-              <p className="font-sans text-gold text-sm mt-0.5">{t.school}</p>
+              <div className="flex items-center gap-3">
+                {/* Avatar placeholder */}
+                <div className="w-9 h-9 rounded-full bg-navy/10 flex items-center justify-center flex-shrink-0">
+                  <span className="font-sans font-bold text-navy text-xs">
+                    {t.name.charAt(0)}
+                  </span>
+                </div>
+                <div>
+                  <p className="font-sans font-bold text-navy text-sm">{t.name}</p>
+                  <p className="font-sans text-gold text-xs mt-0.5">{t.school}</p>
+                </div>
+              </div>
             </div>
           ))}
         </div>
