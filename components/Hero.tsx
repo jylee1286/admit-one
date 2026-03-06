@@ -4,14 +4,21 @@ import { useEffect, useRef } from "react";
 
 export default function Hero() {
   const bgTextRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!bgTextRef.current) return;
       const y = window.scrollY;
-      // Parallax: background text moves slower
-      bgTextRef.current.style.transform = `translateY(${y * 0.3}px)`;
-      bgTextRef.current.style.opacity = `${Math.max(0.06 - y * 0.00008, 0)}`;
+      if (bgTextRef.current) {
+        bgTextRef.current.style.transform = `translateY(${y * 0.3}px)`;
+        bgTextRef.current.style.opacity = `${Math.max(0.06 - y * 0.00008, 0)}`;
+      }
+      // Subtle content fade on scroll
+      if (contentRef.current) {
+        const opacity = Math.max(1 - y * 0.002, 0);
+        contentRef.current.style.opacity = `${opacity}`;
+        contentRef.current.style.transform = `translateY(${y * 0.08}px)`;
+      }
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -51,7 +58,7 @@ export default function Hero() {
         </span>
       </div>
 
-      {/* Subtle grain overlay for texture */}
+      {/* Subtle grain overlay */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.03]"
         style={{
@@ -61,8 +68,8 @@ export default function Hero() {
         }}
       />
 
-      {/* Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-20 md:py-0">
+      {/* Content with scroll fade */}
+      <div ref={contentRef} className="relative z-10 w-full max-w-7xl mx-auto px-6 py-20 md:py-0">
         {/* Gold label */}
         <p
           className="text-gold font-sans font-semibold mb-6"
@@ -71,17 +78,27 @@ export default function Hero() {
           FOR T20 APPLICANTS
         </p>
 
-        {/* Headline */}
+        {/* Headline with gold accent */}
         <h1
           className="font-serif text-cream leading-[1.1] mb-6"
           style={{ fontSize: "clamp(40px, 5vw, 64px)", maxWidth: "600px" }}
         >
-          Finally Know If Your Essay Is Actually Good
+          Finally Know If Your Essay Is{" "}
+          <span className="relative inline-block">
+            Actually Good
+            {/* Gold underline accent — signature element */}
+            <span
+              className="absolute -bottom-1 left-0 w-full h-[3px] rounded-full"
+              style={{
+                background: "linear-gradient(90deg, #D4A853 0%, #D4A853 70%, transparent 100%)",
+              }}
+            />
+          </span>
         </h1>
 
         {/* Subheadline */}
         <p
-          className="text-cream/80 font-sans leading-relaxed mb-10"
+          className="text-cream/70 font-sans leading-relaxed mb-10"
           style={{ fontSize: "clamp(16px, 1.5vw, 18px)", maxWidth: "520px" }}
         >
           Rubrics built from real admissions officer interviews. Honest feedback.
@@ -98,7 +115,7 @@ export default function Hero() {
           </a>
           <a
             href="#how-it-works"
-            className="text-cream font-medium text-sm px-6 py-3.5 inline-flex items-center gap-1 hover:text-gold transition-colors"
+            className="text-cream/80 font-medium text-sm px-6 py-3.5 inline-flex items-center gap-1 hover:text-gold transition-colors"
           >
             See How It Works <span aria-hidden="true">→</span>
           </a>

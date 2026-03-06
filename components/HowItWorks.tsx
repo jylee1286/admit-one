@@ -22,10 +22,13 @@ const steps = [
 
 export default function HowItWorks() {
   const sectionRef = useRef<HTMLElement>(null);
+  const numbersRef = useRef<(HTMLSpanElement | null)[]>([]);
 
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
+
+    // Fade-up observer
     const children = el.querySelectorAll(".fade-up");
     const observer = new IntersectionObserver(
       (entries) => {
@@ -38,12 +41,34 @@ export default function HowItWorks() {
       { threshold: 0.15 }
     );
     children.forEach((child) => observer.observe(child));
-    return () => observer.disconnect();
+
+    // Parallax on ghost numbers
+    const handleScroll = () => {
+      const rect = el.getBoundingClientRect();
+      const sectionTop = rect.top;
+      const viewHeight = window.innerHeight;
+      
+      if (sectionTop < viewHeight && sectionTop > -rect.height) {
+        const progress = (viewHeight - sectionTop) / (viewHeight + rect.height);
+        numbersRef.current.forEach((numEl) => {
+          if (numEl) {
+            const shift = (progress - 0.5) * 30;
+            numEl.style.transform = `translateY(${shift}px)`;
+          }
+        });
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
     <section id="how-it-works" ref={sectionRef} className="bg-navy py-20 md:py-24 relative overflow-hidden">
-      {/* Subtle grain texture */}
+      {/* Grain texture */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.025]"
         style={{
@@ -79,20 +104,22 @@ export default function HowItWorks() {
                 i < steps.length - 1 ? "md:border-r md:border-cream/15" : ""
               } ${i === 0 ? "md:pl-0" : ""} ${i === steps.length - 1 ? "md:pr-0" : ""}`}
             >
-              {/* Giant background number — dramatic */}
+              {/* Giant background number with parallax */}
               <span
-                className="absolute top-[-10px] left-0 md:left-4 font-serif select-none pointer-events-none leading-none"
+                ref={(el) => { numbersRef.current[i] = el; }}
+                className="absolute top-[-10px] left-0 md:left-4 font-serif select-none pointer-events-none leading-none will-change-transform"
                 style={{
                   fontSize: "180px",
                   color: "rgba(250, 247, 242, 0.08)",
                   fontStyle: "italic",
+                  transition: "transform 0.1s linear",
                 }}
                 aria-hidden="true"
               >
                 {step.num}
               </span>
 
-              {/* Content overlaid on number */}
+              {/* Content */}
               <div className="relative pt-16 md:pt-24 z-10">
                 <h3 className="font-serif text-cream text-xl md:text-2xl mb-3">
                   {step.title}
