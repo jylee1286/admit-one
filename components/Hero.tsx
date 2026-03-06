@@ -15,9 +15,9 @@ export default function Hero() {
       }
       // Subtle content fade on scroll
       if (contentRef.current) {
-        const opacity = Math.max(1 - y * 0.002, 0);
+        const opacity = Math.max(1 - y * 0.0006, 0);
         contentRef.current.style.opacity = `${opacity}`;
-        contentRef.current.style.transform = `translateY(${y * 0.08}px)`;
+        contentRef.current.style.transform = `translateY(${y * 0.04}px)`;
       }
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -81,7 +81,7 @@ export default function Hero() {
         {/* Headline with gold accent */}
         <h1
           className="font-serif text-cream leading-[1.1] mb-6"
-          style={{ fontSize: "clamp(40px, 5vw, 64px)", maxWidth: "600px" }}
+          style={{ fontSize: "clamp(52px, 6vw, 80px)", maxWidth: "640px" }}
         >
           Finally Know If Your Essay Is{" "}
           <span className="relative inline-block">

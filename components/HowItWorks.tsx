@@ -38,7 +38,7 @@ export default function HowItWorks() {
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0 }
     );
     children.forEach((child) => observer.observe(child));
 
@@ -110,7 +110,7 @@ export default function HowItWorks() {
                 className="absolute top-[-10px] left-0 md:left-4 font-serif select-none pointer-events-none leading-none will-change-transform"
                 style={{
                   fontSize: "180px",
-                  color: "rgba(250, 247, 242, 0.08)",
+                  color: "rgba(250, 247, 242, 0.13)",
                   fontStyle: "italic",
                   transition: "transform 0.1s linear",
                 }}

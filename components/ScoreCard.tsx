@@ -66,7 +66,7 @@ export default function ScoreCard() {
       ([entry]) => {
         if (entry.isIntersecting) setAnimated(true);
       },
-      { threshold: 0.3 }
+      { threshold: 0 }
     );
     observer.observe(el);
     return () => observer.disconnect();

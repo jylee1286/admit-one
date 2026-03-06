@@ -32,7 +32,7 @@ export default function Pricing() {
           if (entry.isIntersecting) entry.target.classList.add("visible");
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0 }
     );
     children.forEach((child) => observer.observe(child));
     return () => observer.disconnect();

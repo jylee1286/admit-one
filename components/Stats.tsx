@@ -39,7 +39,6 @@ function useCountUp(target: number, duration = 1200) {
 }
 
 export default function Stats() {
-  const stat1 = useCountUp(20, 1000);
   const stat2 = useCountUp(40, 1200);
   const stat3 = useCountUp(100, 1400);
 
@@ -48,9 +47,9 @@ export default function Stats() {
       <div className="max-w-5xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-0">
           {/* Stat 1 */}
-          <div ref={stat1.ref} className="flex flex-col items-center text-center md:border-r md:border-border">
+          <div className="flex flex-col items-center text-center md:border-r md:border-border">
             <span className="font-serif text-navy leading-none" style={{ fontSize: "clamp(64px, 7vw, 84px)" }}>
-              T{stat1.count}
+              T20
             </span>
             <span
               className="text-secondary font-sans mt-3"
