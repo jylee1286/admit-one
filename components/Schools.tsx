@@ -35,7 +35,7 @@ export default function Schools() {
           if (entry.isIntersecting) entry.target.classList.add("is-visible");
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.1 }
     );
     const els = sectionRef.current?.querySelectorAll(".fade-in-section");
     els?.forEach((el) => observer.observe(el));
@@ -57,11 +57,14 @@ export default function Schools() {
           </h2>
         </div>
 
-        <div className="fade-in-section grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-1">
+        <div className="fade-in-section grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-0">
           {schools.map((school) => (
-            <div key={school} className="flex items-center gap-3 py-2.5">
-              <span className="w-px h-4 bg-gold/50 shrink-0" />
-              <p className="text-primary leading-relaxed" style={{ fontSize: "15px" }}>
+            <div
+              key={school}
+              className="group flex items-center gap-3 py-3 cursor-default transition-colors hover:bg-navy/[0.02]"
+            >
+              <span className="w-0.5 h-4 bg-gold/40 shrink-0 transition-all duration-300 group-hover:h-5 group-hover:bg-gold/70" />
+              <p className="text-primary leading-relaxed transition-colors group-hover:text-navy" style={{ fontSize: "15px" }}>
                 {school}
               </p>
             </div>

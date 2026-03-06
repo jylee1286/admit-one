@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const rubricDimensions = [
   { label: "Authenticity & Voice", score: 9.2, width: 92 },
@@ -12,12 +12,14 @@ const rubricDimensions = [
 
 export default function Hero() {
   const cardRef = useRef<HTMLDivElement>(null);
+  const [barsVisible, setBarsVisible] = useState(false);
 
   useEffect(() => {
     const el = cardRef.current;
     if (!el) return;
-    const timeout = setTimeout(() => el.classList.add("is-visible"), 300);
-    return () => clearTimeout(timeout);
+    const t1 = setTimeout(() => el.classList.add("is-visible"), 300);
+    const t2 = setTimeout(() => setBarsVisible(true), 800);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
   }, []);
 
   return (
@@ -32,7 +34,7 @@ export default function Hero() {
       </div>
 
       <div className="max-w-6xl mx-auto px-6 pt-24 pb-14 md:pt-32 md:pb-16">
-        {/* Two-column layout on desktop: headline left, card right */}
+        {/* Two-column layout on desktop */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Left column */}
           <div>
@@ -51,7 +53,7 @@ export default function Hero() {
             <div className="flex flex-wrap items-center gap-4">
               <a
                 href="#pricing"
-                className="bg-navy text-white px-8 py-4 text-sm tracking-wide hover:bg-navy-light transition-colors inline-block"
+                className="bg-navy text-white px-8 py-4 text-sm tracking-wide hover:bg-navy-light transition-all duration-300 inline-block hover:shadow-lg"
               >
                 Score My Essay
               </a>
@@ -72,7 +74,13 @@ export default function Hero() {
             ref={cardRef}
             className="fade-in-section lg:mt-2"
           >
-            <div className="border border-navy/12 bg-white/60 relative" style={{ boxShadow: "0 2px 12px rgba(27,45,79,0.06)" }}>
+            <div
+              className="border border-navy/12 bg-white/70 relative transition-shadow duration-500 hover:shadow-xl"
+              style={{ boxShadow: "0 4px 20px rgba(27,45,79,0.06)" }}
+            >
+              {/* Gold top accent line */}
+              <div className="h-0.5 bg-gold/40" />
+
               {/* Card header */}
               <div className="px-6 pt-5 pb-4 border-b border-border">
                 <div className="flex items-center justify-between">
@@ -93,9 +101,9 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* Rubric dimensions with bars */}
+              {/* Rubric dimensions with animated bars */}
               <div className="px-6 py-4">
-                {rubricDimensions.map((dim) => (
+                {rubricDimensions.map((dim, i) => (
                   <div
                     key={dim.label}
                     className="py-2.5 border-b border-border/50 last:border-b-0"
@@ -106,8 +114,14 @@ export default function Hero() {
                     </div>
                     <div className="h-1 bg-border/40 rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-navy/20 rounded-full"
-                        style={{ width: `${dim.width}%` }}
+                        className="h-full rounded-full transition-all duration-1000 ease-out"
+                        style={{
+                          width: barsVisible ? `${dim.width}%` : "0%",
+                          transitionDelay: `${i * 120}ms`,
+                          background: dim.score >= 9.0
+                            ? "rgba(201,168,76,0.5)"
+                            : "rgba(27,45,79,0.2)",
+                        }}
                       />
                     </div>
                   </div>
