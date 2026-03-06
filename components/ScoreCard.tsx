@@ -30,7 +30,11 @@ export default function ScoreCard() {
   return (
     <div
       ref={ref}
-      className="bg-white rounded-xl shadow-lg shadow-navy/8 p-6 md:p-8 w-full max-w-sm"
+      className="bg-white p-6 md:p-8 w-full max-w-sm border-t-[3px] border-t-gold"
+      style={{
+        borderRadius: "16px",
+        boxShadow: "0 8px 40px rgba(30, 58, 95, 0.12)",
+      }}
     >
       {/* Header */}
       <p
@@ -49,10 +53,10 @@ export default function ScoreCard() {
       </div>
 
       {/* Dimensions */}
-      <div className="space-y-4">
+      <div className="space-y-0">
         {dimensions.map((d) => (
-          <div key={d.name}>
-            <div className="flex justify-between items-baseline mb-1.5">
+          <div key={d.name} className="py-3 border-b border-border last:border-b-0">
+            <div className="flex justify-between items-baseline mb-2">
               <span className="font-sans text-sm text-primary">{d.name}</span>
               <span className="font-sans text-sm font-semibold text-navy">
                 {d.score}/{d.max}

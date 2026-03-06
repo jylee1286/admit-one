@@ -43,37 +43,43 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-cream-dark py-24 md:py-36">
+    <section ref={sectionRef} className="py-20 md:py-24" style={{ backgroundColor: "#F5F1EA" }}>
       <div className="max-w-6xl mx-auto px-6">
         {/* Label */}
         <p
-          className="fade-up text-gold font-sans font-semibold mb-16 text-center"
+          className="fade-up text-gold font-sans font-semibold mb-14 text-center"
           style={{ fontSize: "11px", letterSpacing: "0.2em" }}
         >
           WHAT STUDENTS SAY
         </p>
 
         {/* Testimonials grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
           {testimonials.map((t, i) => (
-            <div key={i} className={`fade-up fade-up-delay-${i + 1} relative`}>
-              {/* Giant quote mark */}
+            <div
+              key={i}
+              className={`fade-up fade-up-delay-${i + 1} relative border-l-[3px] border-gold pl-6 md:pl-8`}
+            >
+              {/* Giant decorative quote mark */}
               <span
-                className="absolute -top-6 -left-2 font-serif text-gold/20 select-none pointer-events-none leading-none"
-                style={{ fontSize: "120px" }}
+                className="absolute -top-8 left-2 font-serif select-none pointer-events-none leading-none"
+                style={{ fontSize: "100px", color: "rgba(212, 168, 83, 0.15)" }}
                 aria-hidden="true"
               >
                 &ldquo;
               </span>
 
               {/* Quote */}
-              <p className="relative font-serif italic text-primary text-lg md:text-xl leading-relaxed mb-6">
+              <p
+                className="relative font-serif italic text-primary leading-relaxed mb-6"
+                style={{ fontSize: "clamp(18px, 1.8vw, 21px)" }}
+              >
                 {t.quote}
               </p>
 
               {/* Attribution */}
               <p className="font-sans font-bold text-navy text-sm">{t.name}</p>
-              <p className="font-sans text-gold text-sm">{t.school}</p>
+              <p className="font-sans text-gold text-sm mt-0.5">{t.school}</p>
             </div>
           ))}
         </div>

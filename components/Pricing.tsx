@@ -39,7 +39,7 @@ export default function Pricing() {
   }, []);
 
   return (
-    <section id="pricing" ref={sectionRef} className="bg-navy py-24 md:py-36">
+    <section id="pricing" ref={sectionRef} className="bg-navy py-20 md:py-24">
       <div className="max-w-5xl mx-auto px-6">
         {/* Label */}
         <p
@@ -49,7 +49,7 @@ export default function Pricing() {
           PRICING
         </p>
         <h2
-          className="fade-up fade-up-delay-1 font-serif text-cream text-center mb-16 md:mb-24"
+          className="fade-up fade-up-delay-1 font-serif text-cream text-center mb-14 md:mb-20"
           style={{ fontSize: "clamp(36px, 4vw, 48px)" }}
         >
           One price. All season.

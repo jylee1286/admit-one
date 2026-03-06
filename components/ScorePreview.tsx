@@ -23,7 +23,7 @@ export default function ScorePreview() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-cream py-24 md:py-36">
+    <section ref={sectionRef} className="bg-cream py-20 md:py-24">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
           {/* Left text */}
