@@ -84,9 +84,9 @@ export default function Hero() {
             className="font-serif text-cream leading-[1.1] mb-6"
             style={{ fontSize: "clamp(52px, 6vw, 80px)", maxWidth: "640px" }}
           >
-            Finally Know If Your Essay Is{" "}
+            Built Only From T20 Admits Essays{" "}
             <span className="relative inline-block">
-              Actually Good
+              And Interviews
               <span
                 className="absolute -bottom-1 left-0 w-full h-[3px] rounded-full"
                 style={{
