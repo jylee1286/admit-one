@@ -84,7 +84,7 @@ export default function Hero() {
             className="font-serif text-cream leading-[1.1] mb-6"
             style={{ fontSize: "clamp(52px, 6vw, 80px)", maxWidth: "820px" }}
           >
-            Built Only From T20 Admits Essays And{" "}
+            Built Only From T20<br />Admits Essays And{" "}
             <span className="relative inline-block">
               Interviews
               <span
