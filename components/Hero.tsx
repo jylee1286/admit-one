@@ -82,7 +82,7 @@ export default function Hero() {
           {/* Headline with gold accent */}
           <h1
             className="font-serif text-cream leading-[1.1] mb-6"
-            style={{ fontSize: "clamp(52px, 6vw, 80px)", maxWidth: "640px" }}
+            style={{ fontSize: "clamp(52px, 6vw, 80px)", maxWidth: "820px" }}
           >
             Built Only From T20 Admits Essays{" "}
             <span className="relative inline-block">
